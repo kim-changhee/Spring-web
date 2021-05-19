@@ -1,4 +1,4 @@
-package kr.mjc.changhee.web.mvc.user;
+package kr.mjc.changhee.web.mvc.article.professor;
 
 import kr.mjc.changhee.web.dao.User;
 import kr.mjc.changhee.web.dao.UserDao;
@@ -30,7 +30,7 @@ public class UserController {
             throws ServletException, IOException {
         request.setAttribute("userList", userDao.listUsers(0, 100));
 
-        request.getRequestDispatcher("/WEB-INF/jsp/model2/user/userList.jsp")
+        request.getRequestDispatcher("/WEB-INF/jsp/mvc/user/userList.jsp")
                 .forward(request, response);
     }
 
@@ -40,7 +40,7 @@ public class UserController {
     public void userForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/WEB-INF/jsp/model2/user/userForm.jsp")
+        request.getRequestDispatcher("/WEB-INF/jsp/mvc/user/userForm.jsp")
                 .forward(request, response);
     }
 
@@ -51,7 +51,7 @@ public class UserController {
                           HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/WEB-INF/jsp/model2/user/loginForm.jsp")
+        request.getRequestDispatcher("/WEB-INF/jsp/mvc/user/loginForm.jsp")
                 .forward(request, response);
     }
 
@@ -61,7 +61,7 @@ public class UserController {
     public void userInfo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/WEB-INF/jsp/model2/user/userInfo.jsp")
+        request.getRequestDispatcher("/WEB-INF/jsp/mvc/user/userInfo.jsp")
                 .forward(request, response);
     }
 
@@ -80,8 +80,8 @@ public class UserController {
             userDao.addUser(user);
             response.sendRedirect(request.getContextPath() + "/mvc/user/userList");
         } catch (DuplicateKeyException e) {
-            response.sendRedirect(request.getContextPath() +
-                    "/mvc/user/userForm?msg=Duplicate email");
+            response.sendRedirect(
+                    request.getContextPath() + "/mvc/user/userForm?msg=Duplicate email");
         }
     }
 
@@ -105,4 +105,14 @@ public class UserController {
         }
     }
 
+
+    /**
+     * 로그 아웃
+     */
+    public void logout(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        response.sendRedirect(request.getContextPath() + "/");
+    }
 }
