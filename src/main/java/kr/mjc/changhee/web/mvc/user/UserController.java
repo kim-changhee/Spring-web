@@ -1,4 +1,4 @@
-package kr.mjc.changhee.web.mvc.article.professor;
+package kr.mjc.changhee.web.mvc.user;
 
 import kr.mjc.changhee.web.dao.User;
 import kr.mjc.changhee.web.dao.UserDao;
