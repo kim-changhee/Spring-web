@@ -1,8 +1,6 @@
 package kr.mjc.changhee.web.model1.user;
 
 import kr.mjc.changhee.web.dao.User;
-import kr.mjc.changhee.web.dao.UserDao;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,21 +14,18 @@ import java.io.PrintWriter;
 @WebServlet("/model1/user/userInfo")
 public class UserInfoServlet extends HttpServlet {
 
-    @Autowired
-    private UserDao userDao;
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+    HttpSession session = request.getSession();
+    User user = (User) session.getAttribute("USER");
 
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("USER");
-
-        out.println("<html><body><h3>사용자 정보</h3>");
-        out.format("<p>%s</p>", user);
-        out.println("</body></html>");
-        out.close();
-    }
+    out.println("<html><body><h3>사용자 정보</h3>");
+    out.format("<p>%s</p>", user);
+    out.println("</body></html>");
+    out.close();
+  }
 }

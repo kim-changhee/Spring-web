@@ -122,7 +122,7 @@ public class Controller {
 
     public void getUsersArticles(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
-        request.setAttribute("getUsersArticles", articleDao.getUsersArticles(Integer.parseInt(request.getParameter("userId"))));
+        request.setAttribute("getUsersArticles", articleDao.getUsersArticles(Integer.parseInt(request.getParameter("userId")), 0,10));
 
         request.getRequestDispatcher("/WEB-INF/jsp/mvc/article/updateForm.jsp")
                 .forward(request, response);
@@ -130,7 +130,7 @@ public class Controller {
 
     public void getUsersArticlesDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("getUsersArticles", articleDao.getUsersArticles(Integer.parseInt(request.getParameter("userId"))));
+        request.setAttribute("getUsersArticles", articleDao.getUsersArticles(Integer.parseInt(request.getParameter("userId")),0,10));
 
         request.getRequestDispatcher("/WEB-INF/jsp/mvc/article/deleteForm.jsp")
                 .forward(request, response);

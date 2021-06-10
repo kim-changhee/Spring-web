@@ -1,8 +1,7 @@
-<%@ page import="java.util.Optional" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="<%= request.getContextPath()%>/">
+    <base href="${pageContext.request.contextPath}/">
 </head>
 <body>
 <%@ include file="/WEB-INF/jsp/springmvc/v2/menu.jsp" %>
@@ -15,8 +14,6 @@
         <button type="submit">저장</button>
     </p>
 </form>
-<p style="color:red;"><%= Optional.ofNullable(request.getAttribute("msg"))
-        .orElse("")%>
-</p>
+<p style="color:red;">${msg}</p>
 </body>
 </html>

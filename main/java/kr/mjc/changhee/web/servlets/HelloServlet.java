@@ -10,13 +10,13 @@ import java.io.PrintWriter;
 
 @WebServlet("/helloServlet")
 public class HelloServlet extends HttpServlet {
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+  @Override
+  public void service(HttpServletRequest request, HttpServletResponse response)
+      throws IOException, ServletException {
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("""
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    out.println("""
         <!DOCTYPE html>
         <html>
         <body>
@@ -24,6 +24,6 @@ public class HelloServlet extends HttpServlet {
         </body>
         </html>
         """);
-        out.close();
-    }
+    out.close();
+  }
 }

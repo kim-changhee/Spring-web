@@ -10,11 +10,11 @@ import java.io.IOException;
 @WebServlet("/model2/user/loginForm")
 public class LoginFormServlet extends HttpServlet {
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
 
-        request.getRequestDispatcher("/WEB-INF/jsp/model2/user/loginForm.jsp")
-                .forward(request, response);
-    }
+    request.getRequestDispatcher("/WEB-INF/jsp/model2/user/loginForm.jsp")
+        .forward(request, response);
+  }
 }

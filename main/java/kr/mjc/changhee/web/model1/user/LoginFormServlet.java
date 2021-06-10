@@ -12,14 +12,14 @@ import java.util.Optional;
 @WebServlet("/model1/user/loginForm")
 public class LoginFormServlet extends HttpServlet {
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        String msg = Optional.ofNullable(request.getParameter("msg")).orElse("");
-        out.format("""
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    String msg = Optional.ofNullable(request.getParameter("msg")).orElse("");
+    out.format("""
         <!DOCTYPE html>
         <html>
         <body>
@@ -33,6 +33,6 @@ public class LoginFormServlet extends HttpServlet {
         </body>
         </html>
         """, msg);
-        out.close();
-    }
+    out.close();
+  }
 }

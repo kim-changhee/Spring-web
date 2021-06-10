@@ -3,7 +3,7 @@
 <% User user = (User) session.getAttribute("USER"); %>
 <html>
 <head>
-    <base href="<%= request.getContextPath()%>/">
+  <base href="<%= request.getContextPath()%>/">
 </head>
 <body>
 <%@ include file="/WEB-INF/jsp/springmvc/v1/menu.jsp" %>
